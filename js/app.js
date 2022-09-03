@@ -72,6 +72,11 @@ const dispalyNewsDetail = (news) => {
     const modalNewsDetail = document.getElementById('modalNewsDetail');
     modalNewsDetail.innerHTML = `
     <p><img src="${news.image_url}" class="img-fluid rounded-start" alt="..."></p>
+    <p>Author Name: ${news.author ? news.author.name : 'no data found'}</p>
+    <p>Published_date: ${news.author ? news.author.published_date : 'no data found'}</p>
+    <p>News Details: ${news.details ? news.details : 'no data found'}</p>
+    <p>User total view: ${news.total_view ? news.total_view : 'no data found'}</p>
+    <p>Rating: ${news.rating ? news.rating.badge : 'no data found'}${news.rating ? news.rating.number : 'no data found'}</p>
     
     `;
 }
