@@ -43,10 +43,11 @@ const displayCategoryDetail = (categorys) => {
                     <p class="card-text">${category.details.slice(0, 300)}</p>
                     <div class="d-flex">
                         <img src="${category.author.img}" class="img-fluid rounded-circle w-25 h-25 "  alt="...">
-                         <h5 class="mt-5 ms-4">${category.author.name ? category.author.name : 'not found'}</h5>
-                        <p class="mt-5 ms-5"><i class="fa-duotone fa-eye"></i>${category.total_view ? category.total_view : 'no data found'}</p>
+                         <h5 class="mt-5 ms-3">${category.author.name ? category.author.name : 'not found'}</h5>
+                         <div class="mt-4 ms-5">
+                            <p > <li class='fa'>&#xf06e;</li> ${category.total_view ? category.total_view : 'no data found'}</p>  
+                         </div>
                     </div>
-                    
                 </div>
             </div>
         </div>
