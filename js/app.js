@@ -12,8 +12,9 @@ const displayCategory = (categorys) => {
     categorys.forEach(category => {
         const categoryList = document.createElement('div');
         categoryList.innerHTML = `
-       <div onclick="loadCategoryDetail('${category.category_id}')">
-            <p>${category.category_name}</p>
+       <div >
+            <a onclick="loadCategoryDetail('${category.category_id}')" id="btn-blog" class="nav-link active ps-4" aria-current="page" href="#"
+            >${category.category_name}</a>
        </div>
         `;
         categoriesContainer.appendChild(categoryList);
@@ -59,18 +60,17 @@ const displayCategoryDetail = (categorys) => {
     categorys.forEach(category => {
         const categoryDiv = document.createElement('div');
         categoryDiv.classList.add('card');
-        console.log(category)
         categoryDiv.innerHTML = `
         <div onclick="loadNewsDetail('${category._id}')" data-bs-toggle="modal" data-bs-target="#exampleModal" class="row g-0 ">
-            <div class="col-md-4 p-3">
-                <img src="${category.thumbnail_url}" class="img-fluid rounded-start" alt="...">
+            <div class="col-lg-4 col-sm-12 p-3">
+                <img src="${category.thumbnail_url}" class="img-fluid  rounded-start" alt="...">
             </div>
-            <div class="col-md-8">
+            <div class="col-lg-8 col-sm-12">
                 <div class="card-body">
                     <h5 class="card-title">${category.title}</h5>
                     <p class="card-text">${category.details.slice(0, 300)}...</p>
-                    <div class="d-flex align-items-center justify-content-between mt-5">
-                        <div class="d-flex ms-2 align-items-center">
+                    <div class="d-lg-flex align-items-center  justify-content-between mt-5">
+                        <div class="d-lg-flex  ms-2 align-items-center">
                                 <img src="${category.author.img}" class="img-fluid rounded-circle img-size" alt="...">
                                 <h6 class="ms-2">${category.author.name ? category.author.name : 'no data found'}<br><span>${category.author.published_date ? category.author.published_date : 'no data found'}</span></h6><br>
                         </div>
