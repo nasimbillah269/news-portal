@@ -14,11 +14,11 @@
 <body>
     <!------- header setion strat ------->
 
-    <header class="container">
+    <header class="container mt-2 ">
         <nav class="navbar navbar-expand-lg bg-light">
             <div class="container-fluid">
-                <a class="navbar-brand ps-5" href="#"> <span class="bg-primary text-white p-1 rounded">world</span>
-                    News</a>
+                <a class="navbar-brand ps-5" href="#"> <span class="bg-primary text-white p-1 rounded">World</span>
+                    <span class="fw-semibold text-primary">News</span></a>
                 <button class="navbar-toggler" type="button" data-bs-toggle="collapse"
                     data-bs-target="#navbarSupportedContent" aria-controls="navbarSupportedContent"
                     aria-expanded="false" aria-label="Toggle navigation">
@@ -29,12 +29,14 @@
 
                     </ul>
                     <div class="d-md-flex d-sm-block pe-5">
-                        <a class="nav-link active ps-4 " aria-current="page" href="#">News</a>
+                        <a class="nav-link active ps-4 text-primary fw-semibold text-decoration-underline"
+                            aria-current="page" href="#">News</a>
                         <a class="nav-link active ps-4" aria-current="page" href="#">Blog</a>
                     </div>
                 </div>
             </div>
         </nav>
+        <hr>
     </header>
     <!------- header setion end ------->
     <!-- main setion -->
@@ -52,10 +54,11 @@
 
             </div>
             <div id="no-data-found " class="d-none">
-                <h3 class="text-center">No data found</h3>
+                <h3 class="text-center text-info">No data found</h3>
             </div>
         </section>
 
+        <!-- spinner added -->
         <section id="loader" class="d-none">
             <div style="height: 400px;" class="d-flex justify-content-center align-items-center">
                 <div class="spinner-border text-success" role="status">

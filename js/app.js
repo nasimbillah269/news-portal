@@ -56,7 +56,7 @@ const displayCategoryDetail = (categorys) => {
                     <p class="card-text">${category.details.slice(0, 300)}...</p>
                     <div class="d-flex">
                         <img src="${category.author.img}" class="img-fluid rounded-circle w-25 h-25 "  alt="...">
-                         <h5 class="mt-5 ms-3">${category.author.name ? category.author.name : 'not found'}</h5>
+                         <h5 class="mt-5 ms-3">${category.author.name ? category.author.name : 'no data found'}</h5>
                          <div class="mt-4 ms-5">
                             <p > <li class='fa'>&#xf06e;</li> ${category.total_view ? category.total_view : 'no data found'}</p>  
                          </div>
@@ -98,10 +98,10 @@ const dispalyNewsDetail = (news) => {
     modalNewsDetail.innerHTML = `
     <p><img src="${news.image_url}" class="img-fluid rounded-start" alt="..."></p>
     <p>Author Name: ${news.author ? news.author.name : 'no data found'}</p>
-    <p>Published_date: ${news.author ? news.author.published_date : 'no data found'}</p>
+    <p>Published_date: ${news.author.published_date ? news.author.published_date : 'no data found'}</p>
     <p>News Details: ${news.details ? news.details : 'no data found'}</p>
     <p>User total view: ${news.total_view ? news.total_view : 'no data found'}</p>
-    <p>Rating: ${news.rating ? news.rating.badge : 'no data found'}${news.rating ? news.rating.number : 'no data found'}</p>
+    <p>Rating: ${news.rating.badge ? news.rating.badge : 'no data found'}${news.rating.number ? news.rating.number : 'no data found'}</p>
     <p>Is Todays Pick: ${news.others_info ? news.others_info.is_todays_pick : 'no data found'}</p>
     <p>Is Trending: ${news.others_info ? news.others_info.is_trending : 'no data found'}</p>
     
