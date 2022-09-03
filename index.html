@@ -31,13 +31,34 @@
                     <div class="d-md-flex d-sm-block pe-5">
                         <a class="nav-link active ps-4 text-primary fw-semibold text-decoration-underline"
                             aria-current="page" href="#">News</a>
-                        <a class="nav-link active ps-4" aria-current="page" href="#">Blog</a>
+                        <a id="btn-blog" class="nav-link active ps-4" aria-current="page" href="#"
+                            data-bs-toggle="modal" data-bs-target="#staticBackdrop">Blog</a>
                     </div>
                 </div>
             </div>
         </nav>
         <hr>
     </header>
+    <!-- question Answer Modal -->
+    <div class="modal fade" id="staticBackdrop" data-bs-backdrop="static" data-bs-keyboard="false" tabindex="-1"
+        aria-labelledby="staticBackdropLabel" aria-hidden="true">
+        <div class="modal-dialog">
+            <div class="modal-content">
+                <div class="modal-header">
+                    <h5 class="modal-title" id="commonQuestionModalLabel"></h5>
+                    <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+                </div>
+                <div id="question-answer" class="modal-body">
+                    ...
+                </div>
+                <div class="modal-footer">
+                    <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Close</button>
+                    <button type="button" class="btn btn-primary">Understood</button>
+                </div>
+            </div>
+        </div>
+    </div>
+
     <!------- header setion end ------->
     <!-- main setion -->
     <main class="container">

@@ -108,4 +108,23 @@ const dispalyNewsDetail = (news) => {
     `;
 }
 
+document.getElementById('btn-blog').addEventListener('click', function () {
+    const questionTitle = document.getElementById('commonQuestionModalLabel');
+    questionTitle.innerText = 'Question Answer'
+    const questionAnswer = document.getElementById('question-answer');
+    questionAnswer.innerHTML = `
+    <p>Answer 1.</p>
+    <p>Var Global scoped or function scoped. The scope of the var keyword is the global.
+    and variables defined inside a particular function can be accessed within the function.  and variables defined inside a particular function can be accessed within the function. let variable is only block scoped. It can’t be
+    accessible outside the particular block Users cannot re-declare the variable defined with the let keyword but can update it.const keyword has all the properties that are the same as the let keyword, except the user cannot update it.cannot change the properties of the const object, but they can change the value of properties of the const object.
+    </p>
+    <p>Answer 2.</p>
+    <p>Regular functions created using function declarations or expressions are ‘constructible’ and ‘callable’. Since regular functions are constructible, they can be called using the ‘new’ keyword. However, the arrow functions are only ‘callable’ and not constructible</p>
+    
+
+    <p>Answer 3.</p>
+    <p>map returns an array with the same length.filter as the name implies, it returns an array with less items than the original array.reduce returns a single value (or object).find returns the first items in an array that satisfies a condition</p>
+    `
+})
+
 loadNews()
