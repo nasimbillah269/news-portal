@@ -77,6 +77,8 @@ const dispalyNewsDetail = (news) => {
     <p>News Details: ${news.details ? news.details : 'no data found'}</p>
     <p>User total view: ${news.total_view ? news.total_view : 'no data found'}</p>
     <p>Rating: ${news.rating ? news.rating.badge : 'no data found'}${news.rating ? news.rating.number : 'no data found'}</p>
+    <p>Is Todays Pick: ${news.others_info ? news.others_info.is_todays_pick : 'no data found'}</p>
+    <p>Is Trending: ${news.others_info ? news.others_info.is_trending : 'no data found'}</p>
     
     `;
 }
