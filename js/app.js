@@ -30,7 +30,6 @@ const displayCategoryDetail = (categorys) => {
     const categoryDetail = document.getElementById('category-detail');
     categoryDetail.textContent = '';
     categorys.forEach(category => {
-        console.log(category)
         const categoryDiv = document.createElement('div');
         categoryDiv.classList.add('card');
         categoryDiv.innerHTML = `
@@ -58,11 +57,23 @@ const displayCategoryDetail = (categorys) => {
     })
 }
 
-const loadNewsDetail = (news_id) => {
+const loadNewsDetail = async (news_id) => {
     const url = `https://openapi.programming-hero.com/api/news/${news_id}`
+    const res = await fetch(url);
+    const data = await res.json()
+    dispalyNewsDetail(data.data[0])
 
-    console.log(url)
+}
 
+const dispalyNewsDetail = (news) => {
+    console.log(news)
+    const newsModalTeitle = document.getElementById('newsModalLabel');
+    newsModalTeitle.innerText = news.title;
+    const modalNewsDetail = document.getElementById('modalNewsDetail');
+    modalNewsDetail.innerHTML = `
+    <p><img src="${news.image_url}" class="img-fluid rounded-start" alt="..."></p>
+    
+    `;
 }
 
 loadNews()
