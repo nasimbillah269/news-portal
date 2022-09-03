@@ -59,6 +59,7 @@ const displayCategoryDetail = (categorys) => {
     categorys.forEach(category => {
         const categoryDiv = document.createElement('div');
         categoryDiv.classList.add('card');
+        console.log(category)
         categoryDiv.innerHTML = `
         <div onclick="loadNewsDetail('${category._id}')" data-bs-toggle="modal" data-bs-target="#exampleModal" class="row g-0 ">
             <div class="col-md-4 p-3">
@@ -68,11 +69,20 @@ const displayCategoryDetail = (categorys) => {
                 <div class="card-body">
                     <h5 class="card-title">${category.title}</h5>
                     <p class="card-text">${category.details.slice(0, 300)}...</p>
-                    <div class="d-flex">
-                        <img src="${category.author.img}" class="img-fluid rounded-circle w-25 h-25 "  alt="...">
-                         <h5 class="mt-5 ms-3">${category.author.name ? category.author.name : 'no data found'}</h5>
-                         <div class="mt-4 ms-5">
+                    <div class="d-flex align-items-center justify-content-between mt-5">
+                        <div class="d-flex ms-2 align-items-center">
+                                <img src="${category.author.img}" class="img-fluid rounded-circle img-size" alt="...">
+                                <h6 class="ms-2">${category.author.name ? category.author.name : 'no data found'}<br><span>${category.author.published_date ? category.author.published_date : 'no data found'}</span></h6><br>
+                        </div>
+                         <div class="me-5">
                             <p > <li class='fa'>&#xf06e;</li> ${category.total_view ? category.total_view : 'no data found'}</p>  
+                         </div>
+                         <div class="me-5">
+                            <li class='fa'>&#xf5c0;</li>
+                            <li class='fa'>&#xf005</li>
+                            <li class='fa'>&#xf005</li>
+                            <li class='fa'>&#xf005</li>
+                            <li class='fa'>&#xf005</li>
                          </div>
                     </div>
                 </div>
