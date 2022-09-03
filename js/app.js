@@ -3,6 +3,7 @@ const loadNews = async () => {
     const res = await fetch(url)
     const data = await res.json();
     displayCategory(data.data.news_category)
+
 }
 
 const displayCategory = (categorys) => {
@@ -20,6 +21,7 @@ const displayCategory = (categorys) => {
 }
 
 const loadCategoryDetail = async (id) => {
+    toggleSpinner(true)
     const url = `https://openapi.programming-hero.com/api/news/category/${id}`
     const res = await fetch(url);
     const data = await res.json();
@@ -29,18 +31,29 @@ const loadCategoryDetail = async (id) => {
 const displayCategoryDetail = (categorys) => {
     const categoryDetail = document.getElementById('category-detail');
     categoryDetail.textContent = '';
+
+    const noDataFound = document.getElementById('no-data-found ');
+    if (categorys.length === 0) {
+        noDataFound.classList.remove('d-none')
+        toggleSpinner(false)
+    }
+    else {
+        noDataFound.classList.add('d-none')
+        toggleSpinner(true)
+    }
+
     categorys.forEach(category => {
         const categoryDiv = document.createElement('div');
         categoryDiv.classList.add('card');
         categoryDiv.innerHTML = `
         <div onclick="loadNewsDetail('${category._id}')" data-bs-toggle="modal" data-bs-target="#exampleModal" class="row g-0 ">
-            <div class="col-md-4 p-1">
+            <div class="col-md-4 p-3">
                 <img src="${category.thumbnail_url}" class="img-fluid rounded-start" alt="...">
             </div>
             <div class="col-md-8">
                 <div class="card-body">
                     <h5 class="card-title">${category.title}</h5>
-                    <p class="card-text">${category.details.slice(0, 300)}</p>
+                    <p class="card-text">${category.details.slice(0, 300)}...</p>
                     <div class="d-flex">
                         <img src="${category.author.img}" class="img-fluid rounded-circle w-25 h-25 "  alt="...">
                          <h5 class="mt-5 ms-3">${category.author.name ? category.author.name : 'not found'}</h5>
@@ -51,11 +64,21 @@ const displayCategoryDetail = (categorys) => {
                 </div>
             </div>
         </div>
-        
         `;
-        categoryDetail.appendChild(categoryDiv);
+        categoryDetail.appendChild(categoryDiv)
+        toggleSpinner(false)
 
     })
+}
+
+const toggleSpinner = isLoding => {
+    const loaderSetion = document.getElementById('loader');
+    if (isLoding) {
+        loaderSetion.classList.remove('d-none');
+    }
+    else {
+        loaderSetion.classList.add('d-none')
+    }
 }
 
 const loadNewsDetail = async (news_id) => {
@@ -63,6 +86,7 @@ const loadNewsDetail = async (news_id) => {
     const res = await fetch(url);
     const data = await res.json()
     dispalyNewsDetail(data.data[0])
+
 
 }
 
