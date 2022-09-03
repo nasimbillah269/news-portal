@@ -1,3 +1,4 @@
+// laod news catefories
 const loadNews = async () => {
     const url = `https://openapi.programming-hero.com/api/news/categories`
     const res = await fetch(url)
@@ -5,7 +6,7 @@ const loadNews = async () => {
     displayCategory(data.data.news_category)
 
 }
-
+// displayCategory
 const displayCategory = (categorys) => {
     const categoriesContainer = document.getElementById('category-container ');
     categorys.forEach(category => {
@@ -19,7 +20,7 @@ const displayCategory = (categorys) => {
 
     })
 }
-
+// loadeCategoryDetial
 const loadCategoryDetail = async (id) => {
     toggleSpinner(true)
     const url = `https://openapi.programming-hero.com/api/news/category/${id}`
@@ -27,10 +28,23 @@ const loadCategoryDetail = async (id) => {
     const data = await res.json();
     displayCategoryDetail(data.data)
 }
-
+// dispalyCateforyDetail
 const displayCategoryDetail = (categorys) => {
     const categoryDetail = document.getElementById('category-detail');
     categoryDetail.textContent = '';
+    const length = categorys.length;
+    const categoriesNumbers = document.getElementById('category-numbers');
+    const textContent = document.getElementById('text-content');
+    if (categorys.length === 0) {
+        categoriesNumbers.innerText = 'no news found'
+        textContent.classList.add('d-none')
+    }
+    else {
+        categoriesNumbers.innerHTML = `
+         ${length} 
+        `;
+        textContent.classList.remove('d-none')
+    }
 
     const noDataFound = document.getElementById('no-data-found ');
     if (categorys.length === 0) {
@@ -70,7 +84,7 @@ const displayCategoryDetail = (categorys) => {
 
     })
 }
-
+// added Spinner
 const toggleSpinner = isLoding => {
     const loaderSetion = document.getElementById('loader');
     if (isLoding) {
@@ -80,16 +94,14 @@ const toggleSpinner = isLoding => {
         loaderSetion.classList.add('d-none')
     }
 }
-
+// loadNewsDetail
 const loadNewsDetail = async (news_id) => {
     const url = `https://openapi.programming-hero.com/api/news/${news_id}`
     const res = await fetch(url);
     const data = await res.json()
     dispalyNewsDetail(data.data[0])
-
-
 }
-
+// displayNewsDetail
 const dispalyNewsDetail = (news) => {
     console.log(news)
     const newsModalTeitle = document.getElementById('newsModalLabel');
@@ -107,7 +119,7 @@ const dispalyNewsDetail = (news) => {
     
     `;
 }
-
+//blog button click handeler added and question answer
 document.getElementById('btn-blog').addEventListener('click', function () {
     const questionTitle = document.getElementById('commonQuestionModalLabel');
     questionTitle.innerText = 'Question Answer'
